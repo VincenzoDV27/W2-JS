@@ -23,12 +23,12 @@ console.log(`Ciao, mi chiamo ${nome} ${cognome}.`);
 
 let a = 10;
 let b = 3;
-console.log(a + b);
-console.log(a - b);
-console.log(a * b);
-console.log(a / b);
-console.log(a % b);
-console.log(a ** b);
+console.log(`${a} + ${b} = ${a + b}`);
+console.log(`${a} - ${b} = ${a - b}`);
+console.log(`${a} * ${b} = ${a * b}`);
+console.log(`${a} / ${b} = ${a / b}`);
+console.log(`${a} % ${b} = ${a % b}`);
+console.log(`${a} ** ${b} = ${a ** b}`);
 
 /* ESERCIZIO 3 — Età nel tempo
    const annoNascita (scegli un anno).
@@ -52,9 +52,10 @@ console.log(`5 anni fa avevi ${eta_5} anni.`);
    Stampa: "Età: 25 — Maggiorenne: true"
 */
 
-const eta = 25;
+let eta;
+eta = 25;
 const boolean = eta >= 18;
-console.log(`Età: ${eta} - Maggiorennte: ${boolean}`);
+console.log(`Età: ${eta} - Maggiorenne: ${boolean}`);
 
 /* ESERCIZIO 5 — Tipo del valore
    Cinque variabili: una string, una number, una boolean, una null, una undefined.
@@ -62,10 +63,10 @@ console.log(`Età: ${eta} - Maggiorennte: ${boolean}`);
    In commento sopra la variabile null: spiega cosa ritorna typeof null e perché.
 */
 
-const stringa = "Pippo";
-const numero = 5;
-const booleano = false;
-const nullo = null;
+let stringa = "Pippo";
+let numero = 5;
+let booleano = false;
+let nullo = null;
 let indefinito; //const richiede immediatamente il valore, ma essendo undefined uso let
 
 console.log(`stringa è di tipo: ${typeof stringa}`);
@@ -84,8 +85,8 @@ console.log(`indefinito è di tipo: ${typeof indefinito}`);
    In commento, una riga: spiega la differenza.
 */
 
-const num = 5;
-const stringNum = "5";
+let num = 5;
+let stringNum = "5";
 console.log(num == stringNum); //controlla se il tipo di variabile O il valore è uguale quindi -> true
 console.log(num === stringNum); //controlla se il tipo di variabile E il valore sono uguali quindi -> false
 
@@ -116,15 +117,15 @@ console.log("10" * "2");
    "n è pari E divisibile per 3: true/false"
 */
 
-const n = 10;
-const par_disp = n % 2; //prendo il resto con la variabile par_disp
-const b_pd = par_disp === 0; //b_pd = boolean pari dispari
+let n;
+n = 10;
+let par_disp = n % 2; //prendo il resto con la variabile par_disp
+let b_pd = par_disp === 0; //b_pd = boolean pari dispari
 console.log(`n è pari: ${b_pd}`);
 
-const b_div3 = n % 3 === 0; // stessa cosa, senza creare una variabile per prenderne il resto, faccio direttamente la verifica dalla variabile boolean
-console.log(`n è divisibile per 3: ${b_div3}`);
+console.log(`n è divisibile per 3: ${n % 3 === 0}`); // stessa cosa, senza creare una variabile per prenderne il resto, faccio direttamente la verifica
 
-console.log(`n è pari e divisibile per 3:  ${b_pd && b_div3}`); //vede se il numero è pari E se il numero è divisibile per 3 con l'operatore logico AND (&&)
+console.log(`n è pari e divisibile per 3:  ${b_pd && n % 3 === 0}`); //vede se il numero è pari E se il numero è divisibile per 3 con l'operatore logico AND (&&)
 
 /* --EXTRA-- ESERCIZIO 9 — Triangolo
    Tre const "a", "b", "c" (lunghezze dei lati).
@@ -133,27 +134,36 @@ console.log(`n è pari e divisibile per 3:  ${b_pd && b_div3}`); //vede se il nu
    Stampa: "Triangolo isoscele, perimetro 15"
 */
 
-const a1 = 5;
-const b1 = 5;
-const c1 = 5;
+const A1 = 5;
+const B1 = 5;
+const C1 = 5;
 
-const p = a1 + b1 + c1; //perimetro
+let p = A1 + B1 + C1; //perimetro
+const B_EQUI = A1 === B1 && B1 === C1; //equilatero
 
-const b_equi = a1 === b1 && b1 === c1; //equilatero
-console.log(b_equi);
+const B_ISO = A1 === B1 || B1 === C1 || A1 === C1; //isoscele
 
-const b_iso = a1 === b1 || b1 === c1 || a1 === c1; //isoscele
-console.log(b_iso);
+const B_SCA = A1 !== B1 && B1 !== C1 && A1 !== C1; //scaleno
 
-const b_sca = a1 !== b1 && b1 !== c1 && a1 !== c1; //scaleno
-console.log(b_sca);
-
-const tipoTriangolo = b_equi //operatore condizionale ternario (come se fosse un if/else if/else) va a verificare quale tra questi ha valore true
+const TIPOTRIANGOLO = B_EQUI //operatore condizionale ternario (come se fosse un if/else if/else) va a verificare quale tra questi ha valore true
   ? "equilatero"
-  : b_iso
+  : B_ISO
     ? "isoscele"
-    : b_sca
+    : B_SCA
       ? "scaleno"
       : "error";
 
-console.log(`Triangolo ${tipoTriangolo} perimetro ${p}`);
+console.log(`Triangolo ${TIPOTRIANGOLO}, perimetro ${p}`);
+
+/*
+if (A1 === b1 && B1 === C1) {
+  console.log(`Triangolo equilatero, perimetro ${p}`);
+} else if (A1 === B1 || B1 === C1 || A1 === C1) {
+  console.log(`Triangolo isoscele, perimetro ${p}`);
+} else if (A1 !== B1 && B1 !== C1 && A1 !== C1) {
+  {
+    console.log(`Triangolo scaleno, perimetro ${p}`);
+  }
+} else {
+  console.log(`Errore`);
+}*/
