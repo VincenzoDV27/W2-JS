@@ -98,7 +98,7 @@ console.log(num === stringNum); //controlla se il tipo di variabile E il valore 
    - "10" * "2"
 */
 
-// 53, va a contatenare i due valori in quanto non trasforma il 5 in number e rimane string.
+// 53, va a concatenare i due valori in quanto non trasforma il 5 in number e rimane string.
 // 2, trasforma lo string 5 in number e fa effettivamente la differenza
 // 2, true vale 1 e viene fatta l'addizione
 // 20, trasforma le due string in number ed effettua la moltiplicazione
@@ -134,10 +134,10 @@ console.log(`n è pari e divisibile per 3:  ${b_pd && b_div3}`); //vede se il nu
 */
 
 const a1 = 5;
-const b1 = 7;
-const c1 = 4;
+const b1 = 5;
+const c1 = 5;
 
-const p = a1 + b1 + c1;
+const p = a1 + b1 + c1; //perimetro
 
 const b_equi = a1 === b1 && b1 === c1; //equilatero
 console.log(b_equi);
